@@ -9,8 +9,8 @@ if(process.env.NODE_ENV === 'development'){
 
 function App() {
   const [query, setQuery] = useState('');
-  const [seacrhResults, setSearchResults] = useState([]);
-
+  const [searchResults, setSearchResults] = useState([]);
+  const [selected, setSelected] = useState([])
   const inputChangeHandler = (event) => {
     setQuery(event.target.value);
   }
@@ -30,6 +30,10 @@ function App() {
     })
   }
 
+  const selctCity = (city) => {
+    setSelected([city, ...selected]);
+  }
+
   return (
     <div className="App">
       <h1>Weather Application</h1>
@@ -37,8 +41,16 @@ function App() {
       <button data-testid="search-button" onClick={buttonClickHandler}>Search</button>
 
       <div data-testid="search-results">
-        {seacrhResults.map((city) => <div key={`${city.lat}-${city.lon}`}>{city.name}</div>)}
+        {searchResults.map((city) => <div key={`${city.lat}-${city.lon}`} onClick={() => selectCity(city)}>{city.name}, {city.lat}, {city.lon}</div>)}
       </div>
+
+    <div data-testid="my-weather-list">
+      {selected && selected.map((city) => <div 
+          key={`${city.lat}-${city.lon}`}>
+          {city.name}
+        </div>)}
+    </div>
+
     </div>
   );
 }
