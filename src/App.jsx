@@ -3,7 +3,7 @@ import './App.css'
 function App() {
   return (
     <div className='App'>
-      learn react
+      <h1>Weather Application</h1>
     </div>
   )
 }
