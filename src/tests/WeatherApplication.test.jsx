@@ -1,10 +1,9 @@
-import WeatherCard from './components/WeatherCard';import React from 'react';
+import WeatherCard from '../components/WeatherCard';import React from 'react';
+import WeatherApplication from '../components/WeatherApplication';
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from './App';
 import { describe, it, expect, afterEach, beforeEach } from 'vitest';
-import { createMockServer } from './createMockServer';
-import { before } from 'node:test';
+import { createMockServer } from '../mock/createMockServer';
 
 let server;
 beforeEach(() => {
@@ -23,13 +22,13 @@ describe('Weather app tests', () => {
         server.shutdown();
     })
     it('renders weather application title', () => {
-        render(<App />);
+        render(<WeatherApplication />);
         const linkElement = screen.getByText(/Weather Application/i);
         expect(linkElement).toBeInTheDocument();
     });
 
     it('shows city search results', async () => {
-        render(<App />);
+        render(<WeatherApplication />);
         const input = screen.getByTestId('search-input')
         userEvent.type(input, 'Melbourne')
         const button = screen.getByTestId('search-button')
@@ -38,7 +37,7 @@ describe('Weather app tests', () => {
     });
 
     it('shows city search result details', async () => {
-        render(<App />);
+        render(<WeatherApplication />);
 
         const input = screen.getByTestId('search-input')
         userEvent.type(input, 'Melbourne')
@@ -51,7 +50,7 @@ describe('Weather app tests', () => {
     });
 
     it('add search result to my weather list', async () => {
-        render(<App />);
+        render(<WeatherApplication />);
         
         const input = screen.getByTestId('search-input')
         userEvent.type(input, 'Melbourne')
