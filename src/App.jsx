@@ -2,7 +2,8 @@ import { useState } from 'react';
 import React from 'react';
 import './App.css';
 import { createMockServer } from './createMockServer';
-import Search from './components/Search'
+import Search from './components/Search';
+import WeatherCard from './components/WeatherCard';
 
 if(process.env.NODE_ENV === 'development'){
   createMockServer();
@@ -26,7 +27,7 @@ function App() {
             {city.name}
           </div>)}
       </div>
-
+      <>WeatherCard city={selectCity}</>
     </div>
   );
 }
