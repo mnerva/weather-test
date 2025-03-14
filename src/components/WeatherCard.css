@@ -18,3 +18,10 @@
         url('../assets/cloud.jpg');
     background-size: cover;
 }
+.temperature {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.weather-category {
+    font-size: 1.5rem;
+}

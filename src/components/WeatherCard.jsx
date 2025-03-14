@@ -22,6 +22,8 @@ const WeatherCard = ({city}) => {
             <h3>{city.name}</h3>
             <p>{weather ? weather.temperature : '-/-'}</p>
             <p>{weather && weather.main}</p>
+            <p className="temperature">{weather ? weather.temperature : '-/-'}</p>
+            <p className="weather-category">{weather && weather.main}</p>
         </div>
     )
 }
