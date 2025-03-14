@@ -12,9 +12,11 @@
     "preview": "vite preview",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test:e2e": "start-server-and-test start http://localhost:5173 cy:run"
+    "test:e2e": "start-server-and-test start http://localhost:5173 cy:run",
+    "playwright": "npx playwright test tests/WeatherApplicationPlaywright.test.mjs"
   },
   "dependencies": {
+    "@playwright/test": "^1.51.0",
     "cypress": "^14.2.0",
     "miragejs": "^0.1.48",
     "react": "^19.0.0",
